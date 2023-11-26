@@ -1,0 +1,12 @@
+components:
+  schemas:
+    Item:
+      type: object
+
+  responses:
+    NotFound:
+      description: Resource not found
+  parameters:
+    LimitParam:
+      in: query
+      name: limit

@@ -1,0 +1,20 @@
+version: '3'
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui:latest
+    ports:
+      - "80:8080"
+    environment:
+      - SWAGGER_JSON=/usr/share/nginx/html/swagger-files/main.yml
+    volumes:
+      - ./swagger-files:/usr/share/nginx/html/swagger-files
+    restart: on-failure
+
+  mock-server:
+    image: stoplight/prism:latest
+    volumes:
+      - ./swagger-files:/swagger-files
+    command: mock -h 0.0.0.0 /swagger-files/main.yml
+    ports:
+      - "4010:4010"
+    restart: on-failure
