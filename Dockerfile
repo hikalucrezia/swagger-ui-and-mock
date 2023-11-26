@@ -6,7 +6,7 @@ LABEL maintainer="fehguy"
 
 ENV API_KEY="**None**" \
     SWAGGER_JSON="/app/swagger.json" \
-    PORT="4011" \
+    PORT="8080" \
     PORT_IPV6="" \
     BASE_URL="/" \
     SWAGGER_JSON_URL=""
@@ -20,4 +20,4 @@ COPY --chmod=0666 ./docker/configurator /usr/share/nginx/configurator
 
 RUN chmod 777 /usr/share/nginx/html/ /etc/nginx/conf.d/ /etc/nginx/conf.d/default.conf /var/cache/nginx/ /var/run/
 
-EXPOSE 4011
+EXPOSE 8080
